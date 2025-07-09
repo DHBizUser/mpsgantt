@@ -1,0 +1,16 @@
+\begin{ganttchart}[y unit title=0.4cm,
+y unit chart=0.5cm,
+vgrid,hgrid,
+title height=1,
+group/.style={draw=none,fill=none},  % remove group borders, etc
+inline,                              % draw bars inline
+bar/.style={draw,fill=gray},
+bar incomplete/.append style={fill=yellow!50},
+bar height=0.7]{1}{24}
+ \gantttitle{Gantt}{24}  \\
+  \gantttitlelist{1,...,24}{1} \\
+ \ganttgroup[inline=false]{$T_{1,1}$}{0}{1}
+    \ganttbar[bar/.style={fill=yellow}]{$O_{i,j}$}{13}{14}
+    \ganttbar[bar/.style={fill=blue}]{$O_{i,j}$}{16}{19} \\
+
+\end{ganttchart}
