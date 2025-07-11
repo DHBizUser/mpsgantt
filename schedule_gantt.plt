@@ -1,3 +1,6 @@
+# online example
+# (browse-url "https://jontateixeira.github.io/posts/gantt-plot-using-gnuplot/")
+
 # schedule plot thesis/dissertation proposal
 #
 reset
@@ -107,5 +110,8 @@ today = '2025-07-09'
 
 set arrow from today, 0.5 to today,words(scheduleList)+0.5 as 7
 
-plot $SCHEDULES using 3:(Idx=Lookup(strcol(1))): 4 : 3 :(Idx-0.2):(Idx+0.2): \
-    (Color(strcol(5))): ytic(strcol(1)) w boxxyerror fill solid 0.7 lw 2.0 lc rgb var notitle
+
+
+
+ plot $SCHEDULES using 3:(Idx=Lookup(strcol(1))): 4 : 3 :(Idx-0.2):(Idx+0.2): \
+     (Color(strcol(5))): ytic(strcol(1)) w boxxyerror fill solid 0.7 lw 2.0 lc rgb var notitle
