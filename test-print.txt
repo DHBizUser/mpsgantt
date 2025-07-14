@@ -1,6 +1,20 @@
-2025-07-11 04:29 pm
+2025-07-14 03:18 pm
 
 compiled from here:
 s:\CC Concurrence Workspace\HARRISDM\RM06analyst\MPSgantt
 
+with Gnuplot version 6.0  patch 1
+
 🥥🌭☻😴📝
+
+
+# comment
+20A	1     BEAUTY
+36A	2     PHARMA
+
+
+
+ 0 	2025-07-11 	2025-07-15 	 4 	 10000 	T14125 	20A
+ 1 	2025-07-20 	2025-07-22 	 2 	 8000 	T10705 	36A
+ 2 	2025-08-01 	2025-08-03 	 2 	 2255 	R12586 	20A
+

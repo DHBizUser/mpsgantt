@@ -76,9 +76,22 @@
 
 (shell-command "git status")
 
-(shell-command "git commit -m \"initial commit\"")
+(shell-command "git commit -m \"test plot\"")
+
+
+
+;; clone a copy from Shared drive over to portable storage
+
+(cd "~/RM06analyst")
+(shell-command "git clone \"s:/CC Concurrence Workspace/HARRISDM/RM06analyst/MPSgantt\"")
 
 
 
 
 
+
+;; gnuplot manual
+(browse-url "c:/Users/harrisdm/DataTools/programs/gnuplot/docs/gnuplot.pdf")
+
+;; vectors pg 95
+;; table pg 223
