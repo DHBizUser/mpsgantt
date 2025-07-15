@@ -80,11 +80,18 @@
 
 
 
-;; clone a copy from Shared drive over to portable storage
 
-(cd "~/RM06analyst")
-(shell-command "git clone \"s:/CC Concurrence Workspace/HARRISDM/RM06analyst/MPSgantt\"")
 
+;; push to Gitea portable
+
+(shell-command "git push origin")
+
+(shell-command "git remote -v")
+
+
+(shell-command "git config --local user.name RM06analyst")
+
+(shell-command "git config --local user.email dharris.richmond@fareva.com")
 
 
 

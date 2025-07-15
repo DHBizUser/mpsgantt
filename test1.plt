@@ -1,6 +1,8 @@
 # -*- comment-start: "# " -*-
 # a test file to work with gnuplot cli
 
+# test comment  ---0246-----
+
 
 reset
 
@@ -24,12 +26,6 @@ timezone = -4			# VA is -5 hours outside DST, -4 hours inside DST
 
 
 
-
-$WorkCenters << EOD
-# comment
-20A	1     BEAUTY
-36A	2     PHARMA
-EOD
 
 
 
