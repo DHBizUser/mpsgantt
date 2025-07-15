@@ -13,7 +13,6 @@
 
 
 
-  (find-file "../env_config/env_config.el")
 
 
 
@@ -22,11 +21,11 @@
   (load-file "../env_config/env_config.el")
 
   (load-file "../env_config/gnuplot-helper-lisp.el")
-  
+  (load-file "../env_config/sqlite-helper-lisp.el")  
   (load-file "../SAPdata/code/charfix.el")
   (setq wrangle-repo "../SAPdata/"
-        SAPspool-folder (file-name-concat wrangle-repo "UnprocessedData/SAPspool_20250710")
-        charfixed-folder (file-name-concat wrangle-repo "Charfixdata/SAPspool_20250710"))
+        SAPspool-folder (file-name-concat wrangle-repo "UnprocessedData/SAPspool_20250715")
+        charfixed-folder (file-name-concat wrangle-repo "Charfixdata/SAPspool_20250715"))
 
 )
 
@@ -35,32 +34,44 @@
 
 
 
- ;; (charfix-folder SAPspool-folder charfixed-folder) 
 
-;; iterate on this file until its done
 
-(setq plot-file "s:/CC Concurrence Workspace/HARRISDM/RM06analyst/MPSgantt/schedule_gantt.plt")
+
+(setq plot-file "./test1.plt"
+
+      project-DB "./test-cm01-data.db"
+
+      project-sql "./CM01_RCCP.sql")
+
+
 
 
 (cli-gnuplot-file-runner plot-file)
 
 
 
+(charfix-folder SAPspool-folder charfixed-folder)
+
+
+(cli-sqlite-file-runner project-DB project-sql)
+
+
+(open-in-sqlite-browser project-DB)
+
+
+
 
 
 ;; open in emacs (can probably be set to open in web browser)
-(browse-url "file:///s:/CC%20Concurrence%20Workspace/HARRISDM/RM06analyst/MPSgantt/MPSgantt.svg")
+(browse-url "file:///s:/CC%20Concurrence%20Workspace/HARRISDM/RM06analyst/mpsgantt/MPSgantt.svg")
 
 ;; open in emacs
 (find-file "s:/CC Concurrence Workspace/HARRISDM/RM06analyst/MPSgantt/MPSgantt.svg")
 
 
+(browse-url "file:///s:/CC%20Concurrence%20Workspace/HARRISDM/RM06analyst/mpsgantt/test-print.txt")
 
 
-
-(setq test1 "./test1.plt")
-
-(cli-gnuplot-file-runner test1)
 
 
 
