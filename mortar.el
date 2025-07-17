@@ -24,9 +24,9 @@
   (load-file "../env_config/sqlite-helper-lisp.el")  
   (load-file "../SAPdata/code/charfix.el")
   (setq wrangle-repo "../SAPdata/"
-        SAPspool-folder (file-name-concat wrangle-repo "UnprocessedData/SAPspool_20250715")
-        charfixed-folder (file-name-concat wrangle-repo "Charfixdata/SAPspool_20250715"))
-
+        SAPspool-folder (file-name-concat wrangle-repo "UnprocessedData/SAPspool_20250717")
+        charfixed-folder (file-name-concat wrangle-repo "Charfixdata/SAPspool_20250717"))
+(mkdir SAPspool-folder)
 )
 
 
@@ -37,7 +37,7 @@
 
 
 
-(setq plot-file "./test1.plt"
+(setq plot-file "./CM01-mps.plt"
 
       project-DB "./test-cm01-data.db"
 
@@ -50,7 +50,22 @@
 
 
 
+
+
+
+
+;; run CM01 and VL06F and send the output to the SAP spooler. I wrote a vbscript called SAPgrab to do this
+;; the other reports are set to a schedule.
+
+(async-shell-command "\"C:/Windows/System32/wscript.exe\" \"../SAPdata/code/SAPgrab.vbs\"")
+
+
+;; manually download spool data from SP02 and move it into the unprocessed data folder, then run charfix
+
 (charfix-folder SAPspool-folder charfixed-folder)
+
+
+
 
 
 (cli-sqlite-file-runner project-DB project-sql)
@@ -62,12 +77,14 @@
 
 
 
-;; open in emacs (can probably be set to open in web browser)
-(browse-url "file:///s:/CC%20Concurrence%20Workspace/HARRISDM/RM06analyst/mpsgantt/MPSgantt.svg")
+;; open in web browser
+(browse-url-of-file "MPSgantt.svg")
+
+(browse-url-of-file "test-print.txt")   ;opens in notepad on windows
+(browse-url "test-print.txt")   ;opens in notepad on windows
 
 ;; open in emacs
 (find-file "s:/CC Concurrence Workspace/HARRISDM/RM06analyst/MPSgantt/MPSgantt.svg")
-
 
 (browse-url "file:///s:/CC%20Concurrence%20Workspace/HARRISDM/RM06analyst/mpsgantt/test-print.txt")
 
@@ -87,13 +104,9 @@
 
 (shell-command "git status")
 
-(shell-command "git commit -m \"test plot\"")
+(shell-command "git commit -m \"made a SQLite script to prep the data\"")
 
 
-
-
-
-;; push to Gitea portable
 
 (shell-command "git push origin")
 
@@ -102,7 +115,7 @@
 
 (shell-command "git config --local user.name RM06analyst")
 
-(shell-command "git config --local user.email dharris.richmond@fareva.com")
+(shell-command "git config --local user.email ******")
 
 
 
