@@ -14,6 +14,34 @@
 
 
 
+;;  process to run the report --> timed it at  15:24.91  --- on 2025-07-18
+;; this is with no hiccups -- some manual steps arranging the source data and directing the scripts to the correct locations on disk.
+
+
+🌭🌭🌭🌭🌭🌭🌭🌭🌭🌭🌭🌭🌭
+TODO:
+
+- create a SQL test to catch a new or missed work center that came up on CM01 but isnt in the WorkCenter table on test-cm01-data.db
+   if new Work Centers are created in the system, will SAPgrab.vbs pull them in?
+
+- make the x axis major tics in one-month intervals with darker grid lines and labels for every month.
+    Try iso week interval for minor tics, unlabeled
+
+- verify WorkCenter table classification with SME
+
+- classify the requirement types with colors to distinguish firm and forecast. using an index in the SQL.
+
+- ?? map the BOMreport paths to the CM01 schedule [order, material, or line level?] and try to show those relationships in the plot.
+
+- establish a benchmark chart that aligns to the month commitment process. Measure movement off of that using a simple animation or swipe
+   mechanism
+
+- write a .bat file or powershell script to run the whole pull-down and update process with less fiddling.
+
+
+
+🌭🌭🌭🌭🌭🌭🌭🌭🌭🌭🌭🌭🌭
+
 
 
 (defun MPSgantt-setup ()
@@ -24,8 +52,8 @@
   (load-file "../env_config/sqlite-helper-lisp.el")  
   (load-file "../SAPdata/code/charfix.el")
   (setq wrangle-repo "../SAPdata/"
-        SAPspool-folder (file-name-concat wrangle-repo "UnprocessedData/SAPspool_20250717")
-        charfixed-folder (file-name-concat wrangle-repo "Charfixdata/SAPspool_20250717"))
+        SAPspool-folder (file-name-concat wrangle-repo "UnprocessedData/SAPspool_20250718")
+        charfixed-folder (file-name-concat wrangle-repo "Charfixdata/SAPspool_20250718"))
 (mkdir SAPspool-folder)
 )
 
@@ -78,7 +106,7 @@
 
 
 ;; open in web browser
-(browse-url-of-file "MPSgantt.svg")
+(browse-url-of-file "CM01-mps.svg")
 
 (browse-url-of-file "test-print.txt")   ;opens in notepad on windows
 (browse-url "test-print.txt")   ;opens in notepad on windows
@@ -104,7 +132,7 @@
 
 (shell-command "git status")
 
-(shell-command "git commit -m \"made a SQLite script to prep the data\"")
+(shell-command "git commit -m \"working prototype\"")
 
 
 

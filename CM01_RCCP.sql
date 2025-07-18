@@ -26,7 +26,7 @@ CREATE TABLE if not exists CM01import (_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,
 	_13,_14,_15,_16,_17,_18,_19)
 ;
 
-.import "s:/CC Concurrence Workspace/HARRISDM/RM06analyst/SAPdata/Charfixdata/SAPspool_20250717/charfix-FP10000223579.TXT" CM01import
+.import "s:/CC Concurrence Workspace/HARRISDM/RM06analyst/SAPdata/Charfixdata/SAPspool_20250718/charfix-FP10000232566.TXT" CM01import
 
 -- ===Prepare CM01==========================================================
 
